@@ -1,0 +1,231 @@
+##################################################
+# .tagrinrc on Unix
+# tagrin.ini on Windows
+# $Id: .tagrinrc,v 1.21.2.41 2006/03/12 15:23:15 tetsu Exp $
+##################################################
+
+# この行は必須
+global data tagdata binding w sysconf
+
+# ウインド内の要素の配置 (flat:1 / 2段:0)
+#   小さいモニタを使っている場合は 0がよい
+set w(flat-layout) 0
+
+
+# スクリーン上での，一行内の最大の文字数
+set data(max-char-in-line) 10000
+
+# スクリーンのサイズ
+#set w(screen-height) 40
+set w(screen-height) 25
+set w(screen-width) 60
+
+# ミニスクリーン (on:1 / off:0)
+set w(mini-screen-on) 0
+set w(mini-screen-height) 5
+
+# タグの情報を標準出力に出すボタンを使うかどうか(使わない:0 / 使う:1)
+set w(stdout-button) 0
+
+# スクリーン上での行間(ポイント)
+set w(screen-baseline) 3
+
+# スクリーンの色
+set w(background) black
+set w(foreground) white
+
+# フォント
+# set w(font) k14
+# set w(font) {{ＭＳ Ｐゴシック} 12 normal}
+
+# テキストフォント
+# set w(textfont) k14
+# set w(textfont) {{ＭＳ Ｐゴシック} 12 normal}
+
+# テキスト検索にマッチした文字列の文字色と背景色
+set w(searched-fg-color) black
+set w(searched-bg-color) pink
+
+# (true/false)形式のタグをふる属性のリスト
+set data(atrb-tf-list) {checked}
+
+# text形式のタグをふる属性のリスト
+set data(atrb-text-list) {}
+
+# 使うタグの行数
+set tagdata(tag-list-num) 3
+
+# 使うタグのリスト
+set tagdata(tag-list1) {リンク元1 リンク元2}
+set tagdata(tag-list2) {リンク先1 リンク先2}
+set tagdata(tag-list3) {一般1 一般2}
+
+# 色をつける順序．リスト中の後の方が上にくる．
+# current tagは "current-tag"
+# マウスによる選択は "sel"
+set tagdata(link-order) {一般1 一般2 リンク先1 リンク先2 リンク元1 リンク元2 linked-tag neighbor-tag current-tag sel}
+
+
+# リンク元となるタグ
+set tagdata(link-from-list) {リンク元1 リンク元2}
+
+# リンク元となるタグのうち，起動時に有効にするタグ
+# 指定しなければ先頭のタグが選択される
+set tagdata(current-from-list) {リンク元1 リンク元2}
+
+# マウスが上に来たときにハイライトするリスト
+#set tagdata(cand-hilight-list) {np 機能語相当}
+# 意味：現在対象としてるタグが「述語」「照応詞」「助動詞」のときに，
+# 「np」をハイライトする
+#set tagdata(cand-hilight-np) {述語 助動詞 照応詞 関係np}
+# set tagdata(cand-hilight-機能語相当) {述語}
+
+# ハイライトする枠の幅
+set tagdata(cand-hilight-width) 3
+
+
+# 警告の文字色と背景色
+set tagdata(warnning-fg-color) Black
+set tagdata(warnning-bg-color) Pink
+
+# リンク先のタグのリスト
+set tagdata(link-tag-list) {リンク先1 リンク先2}
+
+
+# 有向リンクの順方向にのみにハイライトする．
+# デフォルトは無向リンクとしてハイライトされるが，ここで指定することにより
+# 有向リンクとして扱われる
+set tagdata(hilight-directed-link-list) {}
+
+# 再帰的にハイライトする
+set tagdata(hilight-current-recursively) {}
+
+# 再帰的にハイライトする
+# さらに，別のタグの係り先となった場合にもハイライトされる
+# tagdata(hilight-current-recursively)の機能を包含する
+set tagdata(hilight-link-recursively) {}
+
+
+# リンク元となるタグの文字色と背景色
+set tagdata(link-from-color) Black
+set tagdata(link-from-background-color) red
+
+# 焦点を当てているタグの隣のタグの色
+set tagdata(hilight-link-list-neighbor-fg) Black
+set tagdata(hilight-link-list-neighbor-bg) orangered
+
+# 2つ以上離れた個所のタグの色
+set tagdata(hilight-link-list-fg) black
+set tagdata(hilight-link-list-bg) darkorange
+
+
+# 使う色のリスト
+set tagdata(color-list) {Black Gray Purple Blue Green Red Pink Orange White Navy Yellow Sienna SkyBlue Magenta DarkGreen firebrick Grey}
+
+# マークされたタグ名の背景をハイライトする色
+set tagdata(marked-tag-color) gray65
+set tagdata(from-tag-color) ivory
+set tagdata(to-tag-color) pink
+
+# 各タグの設定
+
+################
+### リンク元
+
+# リンク元1
+set tagdata(リンク元1-status) 1
+set tagdata(リンク元1-fcolor) LightBlue2
+set tagdata(リンク元1-bcolor) Black
+set tagdata(リンク元1-bind) P
+
+# リンク元2
+set tagdata(リンク元2-status) 1
+set tagdata(リンク元2-fcolor) grey50
+set tagdata(リンク元2-bcolor) Black
+set tagdata(リンク元2-bind) p
+
+# リンク先1
+set tagdata(リンク先1-status) 1
+set tagdata(リンク先1-fcolor) SlateBlue3
+set tagdata(リンク先1-bcolor) Black
+set tagdata(リンク先1-bind) Q
+
+# リンク先2
+set tagdata(リンク先2-status) 1
+set tagdata(リンク先2-fcolor) grey50
+set tagdata(リンク先2-bcolor) Black
+set tagdata(リンク先2-bind) q
+
+# 一般1
+set tagdata(一般1-status) 1
+set tagdata(一般1-fcolor) PaleGreen1
+set tagdata(一般1-bcolor) Black
+set tagdata(一般1-bind) K
+
+# 一般2
+set tagdata(一般2-status) 1
+set tagdata(一般2-fcolor) Khaki1
+set tagdata(一般2-bcolor) Black
+set tagdata(一般2-bind) k
+
+# 保留
+set tagdata(保留-status) 1
+set tagdata(保留-fcolor) orange
+set tagdata(保留-bcolor) Black
+set tagdata(保留-bind) h
+
+# NP
+set tagdata(np-status) 1
+set tagdata(np-fcolor) White
+set tagdata(np-bcolor) Black
+set tagdata(np-bind) y
+
+
+
+# set tagdata(np-ro) 1
+
+# ファイルのオープン
+set binding(OpenFile) Control-o
+
+# 上書き保存
+set binding(Save) Control-s
+
+# 上書きエクスポート
+set binding(Export) Alt-x
+
+# タグの除去
+set binding(RemoveTag) Control-r
+
+# 再表示
+set binding(Reflesh) Control-l
+
+# 元に戻す
+set binding(Undo) Control-z
+
+# フォーカスをテキストエントリから外す
+set binding(Unfocus) Escape
+
+# ID検索
+set binding(ISearch) Control-i
+
+# テキスト検索
+set binding(TSearch) Control-f
+
+# 終了(自動保存はされない)
+set binding(exit) Control-q
+
+# タギングモードと編集モードのトグル
+set binding(ToggleEditMode) Control-t
+
+# テキストへの変更の保存
+set binding(ResetText) Control-m
+
+# オートセーブ(0:しない/1:する)
+set sysconf(autosave) 0
+
+# ステータスバー(0:付けない/1:付ける)
+set sysconf(status_bar) 1
+
+# タグボタンの動作(0:タグ付与/1:タグ除去)
+set sysconf(tagbutton) 1
+
